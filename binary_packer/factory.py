@@ -1,18 +1,18 @@
 
-from typing import Any, Iterable, Type
+from typing import Any, Generic, Iterable, Type
 
 from .packer import Packer
 from .types import DataClassT, FieldStruct
 
 
-class PackerFactory:
+class PackerFactory(Generic[DataClassT]):
     def __init__(self, target_cls: Type[DataClassT], **fields_structs: FieldStruct[Any, Any]) -> None:
         self._target_cls = target_cls
         self._check_fields_exist_in_target_cls(fields_structs.keys())
 
         self._fields_structs = fields_structs
 
-    def make_packer(self, *fields: str) -> Packer:
+    def make_packer(self, *fields: str) -> Packer[DataClassT]:
         self._check_required_fields_exist_in_fields_structs(fields)
 
         fields_structs = [

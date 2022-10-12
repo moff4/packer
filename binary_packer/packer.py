@@ -1,5 +1,5 @@
 from struct import Struct
-from typing import Any, Type
+from typing import Any, Generic, Type
 
 from .types import DataClassT, FieldStruct
 
@@ -8,7 +8,7 @@ def build_struct_format(fields_structs: list[tuple[str, FieldStruct[Any, Any]]])
     return ''.join(field_struct.fmt for _, field_struct in fields_structs)
 
 
-class Packer:
+class Packer(Generic[DataClassT]):
     """
     Этот класс предполагается приватным, поэтому настоятельно рекомендуется создавать его экземпляры
     исключительно через фабрику PackerFactory. Такой подход гарантирует консистентность пакера.
