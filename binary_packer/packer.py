@@ -22,24 +22,22 @@ class Packer(Generic[DataClassT]):
         self.struct = Struct(item_schema)
 
     def pack(self, obj: DataClassT) -> bytes:
-        encoded_values = []
-        for field, struct_info in self._fields_structs:
-            encode = struct_info.encoder
-            encoded_values.append(
+        return self.struct.pack(
+            *[
                 getattr(obj, field)
-                if encode is None else
-                encode(getattr(obj, field))
-            )
-
-        return self.struct.pack(*encoded_values)
+                if struct_info.encoder is None else
+                struct_info.encoder(getattr(obj, field))
+                for field, struct_info in self._fields_structs
+            ]
+        )
 
     def unpack(self, array: bytes) -> DataClassT:
-        obj = {}
-        for (field, struct_info), value in zip(self._fields_structs, self.struct.unpack(array)):
-            decode = struct_info.decoder
-            obj[field] = value if decode is None else decode(value)
-
-        return self._target_cls(**obj)
+        return self._target_cls(
+            **{
+                field: value if struct_info.decoder is None else struct_info.decoder(value)
+                for (field, struct_info), value in zip(self._fields_structs, self.struct.unpack(array))
+            }
+        )
 
     @property
     def size(self) -> int:
