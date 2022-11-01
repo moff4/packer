@@ -1,7 +1,5 @@
 language: python
 python:
   - "3.9"
-  - "3.10"
-  - "3.11"
 os: linux
-script: python -m pip install poetry && poetry install && python -m tests
+script: python -m tests
