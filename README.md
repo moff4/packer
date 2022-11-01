@@ -4,7 +4,7 @@
 Light and fast packer python dataclasses to bytes
 
 [![Build Status](https://app.travis-ci.com/moff4/packer.svg?branch=master)](https://app.travis-ci.com/moff4/packer)
-[![CodeFactor](https://www.codefactor.io/repository/github/moff4/packer/badge)](https://www.codefactor.io/repository/github/moff4/packer)
+[![CodeFactor](https://www.codefactor.io/repository/github/moff4/packer/badge?s=e9364aaef867be60363f528cdb9c58eaf7c1c64b)](https://www.codefactor.io/repository/github/moff4/packer)
 
 
 ## Install
