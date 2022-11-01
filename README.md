@@ -3,6 +3,10 @@
 
 Light and fast packer python dataclasses to bytes
 
+[![Build Status](https://app.travis-ci.com/moff4/packer.svg?branch=master)](https://app.travis-ci.com/moff4/packer)
+[![CodeFactor](https://www.codefactor.io/repository/github/moff4/packer/badge)](https://www.codefactor.io/repository/github/moff4/packer)
+
+
 ## Install
 
 
@@ -72,3 +76,7 @@ for packer in (packer_1, packer_2, packer_3):
 # len(data_as_bytes)=16
 # unpacked_person=Person(id=UUID('a72decb7-7f9e-497b-ac91-692e316a7580'), name=None, age=None)
 ```
+
+
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/komissarov)
+
