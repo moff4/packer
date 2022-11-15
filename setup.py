@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='binary_packer',
-    version='1.0.0',
+    version='1.0.1',
     author='Komissarov Andrey',
     author_email='Komissar.off.andrey@gmail.com',
     description='Light and fast packer dataclasses to binary',

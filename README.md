@@ -9,6 +9,11 @@ Light and fast packer python dataclasses to bytes
 
 ## Install
 
+Using PIP:
+
+```bash
+pip install binary-packer
+```
 
 ## How it works
 
